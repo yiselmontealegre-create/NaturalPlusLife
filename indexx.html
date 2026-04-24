@@ -1,0 +1,1948 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Natural Plus Life | Suplementos Omnilife — Popayán, Cauca</title>
+  <meta name="description" content="Distribuidor oficial Omnilife en Popayán. Suplementos originales para bienestar, energía, nutrición y deporte. Pedido fácil por WhatsApp con envío a todo Colombia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── TOKENS ──────────────────────────────────────────────── */
+    :root {
+      --bg: #faf8f4;
+      --surface: #ffffff;
+      --ink: #141a16;
+      --ink-mid: #3d4b43;
+      --ink-soft: #6e7d74;
+      --forest: #1b4332;
+      --forest-mid: #2d6a4f;
+      --forest-light: #40916c;
+      --amber: #b5880d;
+      --amber-soft: #f8f0d8;
+      --amber-glow: rgba(181,136,13,.15);
+      --green-glow: rgba(27,67,50,.12);
+      --success: #25d366;
+      --line: rgba(20,26,22,.07);
+      --line-md: rgba(20,26,22,.13);
+      --r-xl: 32px;
+      --r-lg: 22px;
+      --r-md: 14px;
+      --sh-xl: 0 32px 80px rgba(10,20,14,.13);
+      --sh-lg: 0 16px 40px rgba(10,20,14,.09);
+      --sh-sm: 0 4px 16px rgba(10,20,14,.07);
+    }
+
+    /* ─── RESET ───────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a, button, input, textarea, select { font: inherit; color: inherit; }
+    button { border: 0; background: none; cursor: pointer; }
+
+    /* ─── BACKGROUND TEXTURE ──────────────────────────────────── */
+    body::before {
+      content: "";
+      position: fixed; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 10% 0%, rgba(27,67,50,.06), transparent),
+        radial-gradient(ellipse 60% 80% at 90% 100%, rgba(181,136,13,.07), transparent),
+        radial-gradient(ellipse 40% 40% at 50% 50%, rgba(255,255,255,.5), transparent);
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ─── LAYOUT ──────────────────────────────────────────────── */
+    .wrap {
+      position: relative; z-index: 1;
+      width: min(1260px, 100% - 32px);
+      margin: 0 auto;
+    }
+
+    /* ─── ANIMATIONS ──────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+    @keyframes pulse-dot {
+      0%,100% { box-shadow: 0 0 0 0 rgba(37,211,102,.4); }
+      50%      { box-shadow: 0 0 0 8px rgba(37,211,102,0); }
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-8px); }
+    }
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    .anim-up   { animation: fadeUp .7s ease both; }
+    .anim-in   { animation: fadeIn .6s ease both; }
+    .d1 { animation-delay: .05s; }
+    .d2 { animation-delay: .15s; }
+    .d3 { animation-delay: .25s; }
+    .d4 { animation-delay: .35s; }
+    .d5 { animation-delay: .45s; }
+
+    /* ─── TOPBAR ──────────────────────────────────────────────── */
+    .topbar {
+      position: sticky; top: 12px; z-index: 50;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 10px 16px;
+      background: rgba(250,248,244,.88);
+      backdrop-filter: blur(20px) saturate(1.4);
+      border: 1px solid rgba(255,255,255,.72);
+      border-radius: 999px;
+      box-shadow: 0 8px 32px rgba(10,20,14,.1);
+      margin: 14px 0 0;
+    }
+
+    .brand {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none;
+    }
+    .brand-icon {
+      width: 44px; height: 44px; border-radius: 14px;
+      background: linear-gradient(135deg, var(--forest), var(--forest-mid));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; flex-shrink: 0;
+      box-shadow: var(--sh-sm);
+      overflow: hidden;
+    }
+    .brand-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; }
+    .brand-text strong {
+      display: block;
+      font-size: .95rem; font-weight: 700; color: var(--ink);
+      font-family: "Playfair Display", serif;
+    }
+    .brand-text small {
+      display: block; font-size: .72rem; color: var(--ink-soft);
+      font-weight: 500; letter-spacing: .06em;
+    }
+
+    .menu-toggle {
+      display: none; width: 42px; height: 42px;
+      border-radius: 50%; border: 1px solid var(--line-md);
+      background: rgba(255,255,255,.8);
+      flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+    }
+    .menu-toggle span {
+      width: 18px; height: 2px; border-radius: 2px;
+      background: var(--ink); display: block;
+      transition: transform .25s, opacity .25s;
+    }
+    .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; }
+    .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-area {
+      display: flex; align-items: center; gap: 24px;
+    }
+    .nav { display: flex; align-items: center; gap: 20px; }
+    .nav a {
+      text-decoration: none; font-weight: 600; font-size: .9rem;
+      color: var(--ink-mid);
+      transition: color .2s;
+    }
+    .nav a:hover { color: var(--forest); }
+
+    .topbar-actions { display: flex; align-items: center; gap: 10px; }
+
+    /* ─── BUTTONS ─────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 46px; padding: 0 22px;
+      border-radius: 999px; font-weight: 700; font-size: .9rem;
+      text-decoration: none; white-space: nowrap;
+      transition: transform .22s, box-shadow .22s, background .22s, opacity .22s;
+      cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+    .btn:disabled { opacity: .65; pointer-events: none; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--forest), var(--forest-mid));
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(27,67,50,.28);
+    }
+    .btn-primary:hover { box-shadow: 0 18px 36px rgba(27,67,50,.36); }
+
+    .btn-outline {
+      background: rgba(255,255,255,.9);
+      border: 1.5px solid var(--line-md);
+      color: var(--ink);
+      box-shadow: var(--sh-sm);
+    }
+
+    .btn-wa {
+      background: linear-gradient(135deg, #25d366, #128c4e);
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(37,211,102,.28);
+    }
+    .btn-wa:hover { box-shadow: 0 18px 36px rgba(37,211,102,.38); }
+
+    .btn-amber {
+      background: linear-gradient(135deg, #c49a10, var(--amber));
+      color: #fff;
+      box-shadow: 0 12px 28px rgba(181,136,13,.28);
+    }
+
+    .cart-btn {
+      position: relative;
+      background: var(--forest);
+      color: #fff;
+      min-height: 44px; padding: 0 18px;
+    }
+    .cart-bubble {
+      position: absolute; top: -6px; right: -4px;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--amber); color: #fff;
+      font-size: .68rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      border: 2px solid var(--bg);
+    }
+
+    /* ─── HERO ────────────────────────────────────────────────── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr min(480px,44%);
+      gap: 24px; align-items: stretch;
+      margin-top: 24px; margin-bottom: 24px;
+    }
+
+    .hero-copy {
+      position: relative; overflow: hidden;
+      background: linear-gradient(145deg, rgba(255,255,255,.84), rgba(250,248,244,.96));
+      border: 1px solid rgba(255,255,255,.82);
+      border-radius: var(--r-xl);
+      box-shadow: var(--sh-xl);
+      padding: 56px 52px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .hero-copy::before {
+      content: "";
+      position: absolute; top: -80px; right: -80px;
+      width: 300px; height: 300px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(181,136,13,.1), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-copy::after {
+      content: "";
+      position: absolute; bottom: -60px; left: -60px;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(27,67,50,.08), transparent 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 8px 16px; border-radius: 999px;
+      background: var(--amber-soft);
+      border: 1px solid rgba(181,136,13,.2);
+      font-size: .78rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--amber);
+      width: fit-content; margin-bottom: 22px;
+    }
+    .eyebrow .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--amber);
+      animation: pulse-dot 2s infinite;
+    }
+
+    .hero-copy h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      line-height: 1.03; letter-spacing: -.03em;
+      font-weight: 800; margin-bottom: 20px;
+      color: var(--ink);
+    }
+    .hero-copy h1 em {
+      font-style: italic; color: var(--forest-mid);
+    }
+
+    .hero-lead {
+      font-size: 1.05rem; color: var(--ink-mid);
+      line-height: 1.75; max-width: 36rem; margin-bottom: 32px;
+    }
+
+    .trust-row {
+      display: flex; flex-wrap: wrap; gap: 16px;
+      margin-bottom: 36px;
+    }
+    .trust-badge {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 14px; border-radius: 999px;
+      background: rgba(255,255,255,.9);
+      border: 1px solid var(--line-md);
+      font-size: .82rem; font-weight: 600; color: var(--ink-mid);
+      box-shadow: var(--sh-sm);
+    }
+    .trust-badge .ico { font-size: 1rem; }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    /* ─── HERO PANEL (dark) ───────────────────────────────────── */
+    .hero-panel {
+      position: relative; overflow: hidden;
+      border-radius: var(--r-xl);
+      background: linear-gradient(160deg, #0f2d1e 0%, #1b4332 60%, #2d6a4f 100%);
+      box-shadow: var(--sh-xl);
+      padding: 32px;
+      display: flex; flex-direction: column;
+    }
+    .hero-panel::before {
+      content: "";
+      position: absolute; top: 0; right: 0;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(181,136,13,.22), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-panel-top {
+      position: relative; z-index: 1;
+    }
+    .panel-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 999px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.14);
+      font-size: .75rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: rgba(255,255,255,.8);
+      margin-bottom: 14px; width: fit-content;
+    }
+    .panel-label::before {
+      content: ""; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--success);
+      animation: pulse-dot 2s infinite;
+    }
+
+    .hero-panel h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.7rem; line-height: 1.1;
+      color: #fff; margin-bottom: 8px; font-weight: 700;
+    }
+    .hero-panel p {
+      color: rgba(255,255,255,.65); font-size: .9rem;
+      margin-bottom: 20px;
+    }
+
+    .mini-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+      flex: 1;
+    }
+    .mini-card {
+      border-radius: 18px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+      padding: 14px; display: flex; flex-direction: column; gap: 8px;
+      transition: background .2s, transform .2s;
+    }
+    .mini-card:hover { background: rgba(255,255,255,.12); transform: translateY(-2px); }
+    .mini-thumb {
+      height: 100px; border-radius: 12px;
+      background: rgba(255,255,255,.94);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; padding: 8px;
+    }
+    .mini-thumb img {
+      width: 100%; height: 100%; object-fit: contain;
+      filter: drop-shadow(0 8px 12px rgba(0,0,0,.15));
+    }
+    .mini-card-name {
+      font-size: .88rem; font-weight: 700; color: rgba(255,255,255,.92);
+    }
+    .mini-card-cat {
+      font-size: .72rem; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; color: rgba(255,255,255,.5);
+    }
+    .mini-card-price {
+      font-size: .9rem; font-weight: 800; color: #f0c040;
+    }
+
+    /* ─── STATS BAR ───────────────────────────────────────────── */
+    .stats-bar {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 16px; margin-bottom: 24px;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,.8);
+      border-radius: var(--r-lg);
+      box-shadow: var(--sh-sm);
+      padding: 22px 20px;
+      display: flex; align-items: center; gap: 14px;
+      transition: transform .22s, box-shadow .22s;
+    }
+    .stat-card:hover { transform: translateY(-3px); box-shadow: var(--sh-lg); }
+    .stat-ico {
+      width: 48px; height: 48px; border-radius: 14px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .stat-ico.green  { background: rgba(27,67,50,.1); }
+    .stat-ico.amber  { background: var(--amber-glow); }
+    .stat-ico.blue   { background: rgba(30,100,200,.08); }
+    .stat-ico.pink   { background: rgba(200,30,100,.08); }
+    .stat-num {
+      font-family: "Playfair Display", serif;
+      font-size: 1.7rem; font-weight: 800; color: var(--ink); line-height: 1;
+    }
+    .stat-lbl { font-size: .8rem; color: var(--ink-soft); font-weight: 500; margin-top: 3px; }
+
+    /* ─── HOW IT WORKS ────────────────────────────────────────── */
+    .steps-section {
+      margin-bottom: 24px;
+      background: var(--surface);
+      border-radius: var(--r-xl);
+      border: 1px solid rgba(255,255,255,.8);
+      box-shadow: var(--sh-sm);
+      padding: 40px 40px 36px;
+    }
+    .section-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .78rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--forest-mid);
+      margin-bottom: 10px;
+    }
+    .section-eyebrow::before {
+      content: ""; width: 20px; height: 2px;
+      background: var(--forest-mid); border-radius: 2px;
+    }
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.7rem, 3.5vw, 2.6rem);
+      font-weight: 800; line-height: 1.1; color: var(--ink);
+      letter-spacing: -.03em; margin-bottom: 32px;
+    }
+
+    .steps-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+    .step-card {
+      position: relative; padding: 24px 20px;
+      border-radius: var(--r-lg);
+      border: 1px solid var(--line);
+      background: var(--bg);
+      transition: transform .22s, box-shadow .22s;
+    }
+    .step-card:hover { transform: translateY(-4px); box-shadow: var(--sh-lg); }
+    .step-num {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--forest), var(--forest-mid));
+      color: #fff; font-weight: 800; font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .step-ico { font-size: 1.8rem; margin-bottom: 12px; }
+    .step-card h4 { font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+    .step-card p { font-size: .87rem; color: var(--ink-soft); line-height: 1.65; }
+    .step-connector {
+      position: absolute; top: 38px; right: -16px;
+      width: 32px; height: 2px;
+      background: linear-gradient(90deg, var(--line-md), transparent);
+      z-index: 2;
+    }
+    .step-card:last-child .step-connector { display: none; }
+
+    /* ─── SECTION BASE ────────────────────────────────────────── */
+    .section {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,.8);
+      border-radius: var(--r-xl);
+      box-shadow: var(--sh-sm);
+      padding: 40px;
+      margin-bottom: 24px;
+    }
+    .section-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 24px; margin-bottom: 28px;
+    }
+    .section-lead {
+      font-size: .97rem; color: var(--ink-soft); max-width: 34rem; line-height: 1.75;
+    }
+
+    /* ─── CATEGORIES ──────────────────────────────────────────── */
+    .toolbar {
+      display: flex; gap: 12px; align-items: center;
+      flex-wrap: wrap; margin-bottom: 18px;
+    }
+    .chip-row { display: flex; flex-wrap: wrap; gap: 8px; flex: 1; }
+    .chip {
+      padding: 10px 18px; border-radius: 999px;
+      border: 1.5px solid var(--line-md);
+      background: rgba(255,255,255,.8);
+      color: var(--ink-mid); font-weight: 600; font-size: .87rem;
+      transition: all .2s; cursor: pointer;
+    }
+    .chip:hover { border-color: var(--forest-light); color: var(--forest); transform: translateY(-1px); }
+    .chip.active {
+      background: var(--forest); border-color: var(--forest);
+      color: #fff; box-shadow: 0 8px 20px rgba(27,67,50,.24);
+    }
+
+    .search-box {
+      min-height: 48px; padding: 0 18px 0 44px;
+      border-radius: 999px; border: 1.5px solid var(--line-md);
+      background: rgba(255,255,255,.9);
+      outline: none; width: 280px; flex-shrink: 0;
+      box-shadow: var(--sh-sm);
+      transition: border-color .2s, box-shadow .2s;
+      background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%236e7d74' stroke-width='2' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: 16px center;
+    }
+    .search-box:focus {
+      border-color: var(--forest-mid);
+      box-shadow: 0 0 0 4px rgba(27,67,50,.1), var(--sh-sm);
+    }
+
+    .cat-preview-strip {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 16px;
+      margin-bottom: 8px;
+    }
+    .cat-preview-card {
+      border-radius: var(--r-lg); overflow: hidden;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      box-shadow: var(--sh-sm);
+      transition: transform .22s, box-shadow .22s;
+    }
+    .cat-preview-card:hover { transform: translateY(-4px); box-shadow: var(--sh-lg); }
+    .cat-preview-img {
+      height: 160px; display: flex; align-items: center; justify-content: center;
+      padding: 14px;
+    }
+    .cat-preview-img img {
+      max-height: 130px; width: 100%; object-fit: contain;
+      filter: drop-shadow(0 10px 14px rgba(0,0,0,.14));
+    }
+    .cat-preview-body { padding: 16px; }
+    .cat-preview-body h4 { font-size: .97rem; font-weight: 700; margin-bottom: 4px; }
+    .cat-preview-body .benefit { font-size: .82rem; font-weight: 700; color: var(--forest-light); }
+    .cat-preview-body .price { font-size: 1.05rem; font-weight: 800; color: var(--forest); margin-top: 8px; }
+    .cat-preview-body .add-btn { margin-top: 12px; width: 100%; }
+
+    /* ─── COMBOS ──────────────────────────────────────────────── */
+    .combo-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .combo-card {
+      border-radius: var(--r-lg);
+      background: linear-gradient(160deg, rgba(255,255,255,.94), rgba(250,248,244,.98));
+      border: 1px solid var(--line);
+      box-shadow: var(--sh-sm);
+      padding: 26px;
+      transition: transform .22s, box-shadow .22s;
+      display: flex; flex-direction: column;
+    }
+    .combo-card:hover { transform: translateY(-4px); box-shadow: var(--sh-lg); }
+    .combo-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 18px; }
+    .combo-avatars { display: flex; }
+    .combo-avatar {
+      width: 56px; height: 56px; border-radius: 18px;
+      background: rgba(255,255,255,.96);
+      border: 2.5px solid #fff;
+      box-shadow: var(--sh-sm); overflow: hidden;
+      margin-left: -10px;
+    }
+    .combo-avatar:first-child { margin-left: 0; }
+    .combo-avatar img { width: 100%; height: 100%; object-fit: contain; padding: 6px; }
+    .combo-badge {
+      padding: 6px 12px; border-radius: 999px;
+      background: var(--amber-soft);
+      border: 1px solid rgba(181,136,13,.2);
+      font-size: .72rem; font-weight: 800; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--amber);
+    }
+    .combo-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem; font-weight: 700; margin-bottom: 6px;
+    }
+    .combo-card p { font-size: .87rem; color: var(--ink-soft); margin-bottom: 16px; }
+    .combo-items { list-style: none; display: flex; flex-direction: column; gap: 8px; flex: 1; margin-bottom: 20px; }
+    .combo-items li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: .87rem; font-weight: 600; color: var(--ink-mid);
+    }
+    .combo-items li::before {
+      content: ""; width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, var(--forest-light), var(--amber));
+    }
+    .combo-footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; }
+    .combo-price { font-size: 1.35rem; font-weight: 800; color: var(--forest); }
+    .combo-savings { font-size: .78rem; font-weight: 700; color: var(--forest-light); }
+
+    /* ─── PRODUCTS ────────────────────────────────────────────── */
+    .product-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; margin-top: 10px; }
+    .product-card {
+      border-radius: var(--r-lg); overflow: hidden;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--sh-sm);
+      display: flex; flex-direction: column;
+      transition: transform .22s, box-shadow .22s;
+    }
+    .product-card:hover { transform: translateY(-5px); box-shadow: var(--sh-xl); }
+
+    .product-media {
+      position: relative; min-height: 240px;
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    .product-cat-tag {
+      position: absolute; top: 14px; left: 14px;
+      padding: 5px 12px; border-radius: 999px;
+      background: rgba(255,255,255,.9);
+      border: 1px solid var(--line-md);
+      font-size: .72rem; font-weight: 700; letter-spacing: .07em;
+      text-transform: uppercase; color: var(--ink-mid);
+    }
+    .product-media img {
+      max-height: 190px; width: 100%; object-fit: contain;
+      filter: drop-shadow(0 18px 24px rgba(0,0,0,.18));
+      animation: float 4s ease-in-out infinite;
+    }
+    .product-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+    .product-body h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
+    .product-benefit { font-size: .82rem; font-weight: 700; color: var(--forest-mid); margin-bottom: 8px; }
+    .product-desc { font-size: .85rem; color: var(--ink-soft); line-height: 1.6; flex: 1; margin-bottom: 12px; }
+    .product-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .product-tag {
+      padding: 4px 10px; border-radius: 999px;
+      background: var(--amber-soft);
+      border: 1px solid rgba(181,136,13,.15);
+      font-size: .72rem; font-weight: 700; color: var(--amber);
+    }
+    .product-footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; }
+    .product-price { font-size: 1.2rem; font-weight: 800; color: var(--forest); }
+    .product-wa-btn {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(37,211,102,.12);
+      border: 1.5px solid rgba(37,211,102,.25);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; font-size: 1.1rem;
+      flex-shrink: 0; transition: all .2s;
+    }
+    .product-wa-btn:hover { background: rgba(37,211,102,.22); transform: scale(1.08); }
+
+    .results-meta {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 18px; border-radius: var(--r-md);
+      background: var(--bg); border: 1px solid var(--line);
+      margin-bottom: 16px; font-size: .87rem;
+    }
+    .results-meta strong { color: var(--forest); font-weight: 700; }
+    .results-meta span { color: var(--ink-soft); }
+
+    .empty-state {
+      display: none; text-align: center; padding: 48px 24px;
+      border-radius: var(--r-lg); border: 2px dashed var(--line-md);
+      color: var(--ink-soft);
+    }
+    .empty-state .icon { font-size: 2.5rem; margin-bottom: 12px; }
+
+    /* ─── TESTIMONIALS ────────────────────────────────────────── */
+    .testimonials-section {
+      background: linear-gradient(160deg, var(--forest), #0f2d1e);
+      border-radius: var(--r-xl);
+      padding: 48px 40px;
+      margin-bottom: 24px;
+      position: relative; overflow: hidden;
+      box-shadow: var(--sh-xl);
+    }
+    .testimonials-section::before {
+      content: "";
+      position: absolute; bottom: -60px; right: -60px;
+      width: 280px; height: 280px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(181,136,13,.2), transparent 70%);
+      pointer-events: none;
+    }
+    .testimonials-section .section-eyebrow { color: rgba(255,255,255,.6); }
+    .testimonials-section .section-eyebrow::before { background: rgba(255,255,255,.4); }
+    .testimonials-section .section-title { color: #fff; }
+    .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .testi-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--r-lg); padding: 24px;
+      transition: background .2s, transform .2s;
+    }
+    .testi-card:hover { background: rgba(255,255,255,.12); transform: translateY(-3px); }
+    .stars { color: #f0c040; font-size: 1rem; letter-spacing: 2px; margin-bottom: 14px; }
+    .testi-text { font-size: .92rem; color: rgba(255,255,255,.8); line-height: 1.72; margin-bottom: 18px; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--forest-light), var(--amber));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; color: #fff; font-size: .9rem; flex-shrink: 0;
+    }
+    .testi-name { font-weight: 700; color: #fff; font-size: .9rem; }
+    .testi-city { font-size: .78rem; color: rgba(255,255,255,.5); }
+
+    /* ─── ORDER / CHECKOUT ────────────────────────────────────── */
+    .order-layout {
+      display: grid; grid-template-columns: 1fr min(420px,44%);
+      gap: 24px; align-items: start;
+    }
+
+    .service-card {
+      border-radius: var(--r-xl); overflow: hidden;
+      background: linear-gradient(160deg, #0f2d1e, var(--forest));
+      box-shadow: var(--sh-xl);
+      padding: 40px;
+      color: #fff;
+    }
+    .service-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 2rem; font-weight: 800; margin-bottom: 12px; line-height: 1.1;
+    }
+    .service-card > p { color: rgba(255,255,255,.7); line-height: 1.75; margin-bottom: 28px; }
+
+    .service-perks { display: grid; gap: 12px; margin-bottom: 28px; }
+    .perk {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 16px 18px; border-radius: var(--r-md);
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+    }
+    .perk-ico { font-size: 1.4rem; flex-shrink: 0; }
+    .perk-text strong { display: block; color: #fff; font-size: .9rem; margin-bottom: 3px; }
+    .perk-text span { font-size: .82rem; color: rgba(255,255,255,.6); }
+
+    .service-meta { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    .meta-item { padding: 16px; border-radius: var(--r-md); background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1); }
+    .meta-item strong { display: block; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 6px; }
+    .meta-item span { color: rgba(255,255,255,.85); font-size: .88rem; font-weight: 600; }
+
+    .checkout-card {
+      position: sticky; top: 88px;
+      border-radius: var(--r-xl);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--sh-xl);
+      padding: 30px;
+    }
+    .checkout-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.7rem; font-weight: 800; color: var(--ink); margin-bottom: 4px;
+    }
+    .checkout-sub { font-size: .88rem; color: var(--ink-soft); margin-bottom: 20px; }
+
+    .cart-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+    .cart-item {
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 12px; padding: 14px 16px;
+      border-radius: var(--r-md);
+      background: var(--bg); border: 1px solid var(--line);
+    }
+    .cart-item strong { display: block; font-size: .93rem; margin-bottom: 3px; }
+    .cart-item span { font-size: .82rem; color: var(--ink-soft); display: block; }
+    .qty-controls { display: flex; align-items: center; gap: 8px; }
+    .qty-btn {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--surface); border: 1.5px solid var(--line-md);
+      font-weight: 800; font-size: .9rem;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: var(--sh-sm); transition: all .18s; cursor: pointer;
+    }
+    .qty-btn:hover { border-color: var(--forest); color: var(--forest); }
+    .qty-val { min-width: 20px; text-align: center; font-weight: 800; font-size: .93rem; }
+
+    .cart-empty {
+      padding: 20px; border-radius: var(--r-md);
+      border: 2px dashed var(--line-md);
+      color: var(--ink-soft); font-size: .88rem; text-align: center; line-height: 1.65;
+    }
+
+    .cart-total {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 16px; margin-top: 4px;
+      border-top: 2px solid var(--line);
+      margin-bottom: 20px;
+    }
+    .cart-total span { font-weight: 700; color: var(--ink-mid); }
+    .cart-total strong { font-size: 1.4rem; font-weight: 800; color: var(--forest); }
+
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field.full { grid-column: 1/-1; }
+    .field label { font-size: .82rem; font-weight: 700; color: var(--ink-mid); }
+    .field input, .field textarea, .field select {
+      width: 100%; padding: 12px 14px;
+      border-radius: var(--r-md); border: 1.5px solid var(--line-md);
+      background: rgba(255,255,255,.9); color: var(--ink);
+      outline: none; resize: vertical;
+      transition: border-color .2s, box-shadow .2s;
+      box-shadow: var(--sh-sm);
+    }
+    .field input:focus, .field textarea:focus, .field select:focus {
+      border-color: var(--forest-mid);
+      box-shadow: 0 0 0 4px rgba(27,67,50,.1), var(--sh-sm);
+    }
+    .field textarea { min-height: 88px; }
+
+    .error-box {
+      display: none; padding: 14px 16px; border-radius: var(--r-md);
+      background: #fff1f0; border: 1.5px solid #fcc; color: #941a1a;
+      font-size: .87rem; font-weight: 600; line-height: 1.55;
+      margin-bottom: 14px;
+    }
+    .status-box {
+      display: none; padding: 14px 16px; border-radius: var(--r-md);
+      font-size: .87rem; font-weight: 600; line-height: 1.55;
+      margin-bottom: 14px;
+    }
+    .status-box.success { background: #edfaf2; border: 1.5px solid #b6e8cc; color: #1a6636; }
+    .status-box.warning { background: #fff8ec; border: 1.5px solid #f2d89c; color: #7a4f08; }
+
+    .checkout-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+    .checkout-actions .btn { width: 100%; }
+
+    /* ─── FOOTER ──────────────────────────────────────────────── */
+    .footer {
+      margin: 24px 0 32px;
+      background: var(--surface);
+      border-radius: var(--r-xl);
+      border: 1px solid var(--line);
+      padding: 32px 36px;
+      box-shadow: var(--sh-sm);
+    }
+    .footer-top {
+      display: flex; align-items: flex-start; justify-content: space-between;
+      gap: 32px; margin-bottom: 28px; flex-wrap: wrap;
+    }
+    .footer-brand h4 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.25rem; font-weight: 800; margin-bottom: 6px;
+    }
+    .footer-brand p { font-size: .87rem; color: var(--ink-soft); max-width: 24rem; line-height: 1.65; }
+    .footer-links h5 { font-size: .8rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-mid); margin-bottom: 12px; }
+    .footer-links a { display: block; font-size: .87rem; color: var(--ink-soft); text-decoration: none; font-weight: 500; margin-bottom: 8px; transition: color .18s; }
+    .footer-links a:hover { color: var(--forest); }
+    .footer-bottom {
+      padding-top: 20px; border-top: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      font-size: .8rem; color: var(--ink-soft); flex-wrap: wrap;
+    }
+    .footer-bottom a { color: var(--ink-soft); text-decoration: none; font-weight: 600; }
+    .omnilife-seal {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 14px; border-radius: 999px;
+      background: var(--amber-soft); border: 1px solid rgba(181,136,13,.2);
+      font-size: .78rem; font-weight: 700; color: var(--amber);
+    }
+
+    /* ─── FLOATING WA ─────────────────────────────────────────── */
+    .wa-float {
+      position: fixed; bottom: 20px; right: 20px; z-index: 99;
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 22px; border-radius: 999px;
+      background: linear-gradient(135deg, #25d366, #128c4e);
+      color: #fff; font-weight: 800; font-size: .9rem;
+      text-decoration: none;
+      box-shadow: 0 16px 40px rgba(37,211,102,.35);
+      animation: float 3s ease-in-out infinite;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .wa-float:hover { box-shadow: 0 22px 50px rgba(37,211,102,.48); animation-play-state: paused; transform: translateY(-3px); }
+    .wa-float .live-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: rgba(255,255,255,.9);
+      animation: pulse-dot 2s infinite;
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────────── */
+    @media (max-width: 1100px) {
+      .hero, .order-layout { grid-template-columns: 1fr; }
+      .stats-bar { grid-template-columns: repeat(2,1fr); }
+      .product-grid { grid-template-columns: repeat(2,1fr); }
+      .combo-grid { grid-template-columns: 1fr; }
+      .cat-preview-strip { grid-template-columns: repeat(2,1fr); }
+      .steps-grid { grid-template-columns: repeat(2,1fr); }
+      .testi-grid { grid-template-columns: 1fr; }
+      .service-meta { grid-template-columns: 1fr; }
+      .checkout-card { position: static; }
+    }
+    @media (max-width: 820px) {
+      .wrap { width: calc(100% - 24px); }
+      .topbar { border-radius: 22px; padding: 10px 14px; flex-wrap: wrap; }
+      .menu-toggle { display: flex; }
+      .nav-area {
+        display: none; width: 100%;
+        flex-direction: column; align-items: stretch;
+        gap: 12px; padding-top: 12px;
+        border-top: 1px solid var(--line);
+        margin-top: 4px;
+      }
+      .nav-area.open { display: flex; }
+      .nav { flex-direction: column; align-items: stretch; gap: 4px; }
+      .nav a { padding: 10px 6px; font-size: 1rem; }
+      .topbar-actions { flex-wrap: wrap; }
+      .topbar-actions .btn { flex: 1; }
+      .hero-copy, .section, .steps-section, .service-card, .testimonials-section { padding: 28px 24px; }
+      .section-header { flex-direction: column; align-items: flex-start; }
+      .footer-top { flex-direction: column; }
+      .form-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .hero-copy h1 { font-size: 2.6rem; }
+      .product-grid, .cat-preview-strip { grid-template-columns: 1fr; }
+      .stats-bar { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .wa-float { right: 12px; left: 12px; justify-content: center; border-radius: 20px; }
+      .hero-actions .btn, .checkout-actions .btn { width: 100%; }
+      .toolbar { flex-direction: column; align-items: stretch; }
+      .search-box { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- ══ NAV ══════════════════════════════════════════ -->
+  <header class="topbar anim-up">
+    <a class="brand" href="#inicio">
+      <div class="brand-icon"><img id="brandIcon" src="assets/brand/logo-icon.png" alt="Natural Plus Life" /></div>
+      <div class="brand-text">
+        <strong>Natural Plus Life</strong>
+        <small>Distribuidor Omnilife · Popayán</small>
+      </div>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="nav-area" id="navArea">
+      <nav class="nav" aria-label="Principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#combos">Combos</a>
+        <a href="#productos">Productos</a>
+        <a href="#pedido">Pedir</a>
+      </nav>
+      <div class="topbar-actions">
+        <a class="btn btn-outline" id="headerWa" href="https://wa.me/573122538665" target="_blank" rel="noreferrer">💬 WhatsApp</a>
+        <a class="btn btn-primary cart-btn" href="#pedido">
+          🛒 Carrito <span class="cart-bubble" id="cartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ══ HERO ═══════════════════════════════════════ -->
+    <section class="hero" id="inicio">
+      <div class="hero-copy anim-up d1">
+        <div class="eyebrow">
+          <span class="dot"></span>
+          Distribuidor oficial Omnilife — Popayán
+        </div>
+
+        <h1>Salud <em>natural</em> que sí funciona.</h1>
+
+        <p class="hero-lead">
+          Suplementos originales Omnilife para energía, bienestar, nutrición y deporte.
+          Selecciona tus productos, agrega al carrito y haz tu pedido en segundos por WhatsApp.
+        </p>
+
+        <div class="trust-row">
+          <div class="trust-badge"><span class="ico">✅</span> Productos 100% originales</div>
+          <div class="trust-badge"><span class="ico">🚚</span> Envío a todo Colombia</div>
+          <div class="trust-badge"><span class="ico">⚡</span> Respuesta inmediata</div>
+          <div class="trust-badge"><span class="ico">🔒</span> Compra segura</div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#productos" style="font-size:1rem;min-height:52px;padding:0 28px;">🛒 Ver productos</a>
+          <a class="btn btn-wa" id="heroWa" href="https://wa.me/573122538665" target="_blank" rel="noreferrer" style="font-size:1rem;min-height:52px;">💬 Pedir asesoría gratis</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel anim-up d2">
+        <div class="hero-panel-top">
+          <div class="panel-label">En stock ahora</div>
+          <h3>Bienestar, energía y nutrición</h3>
+          <p>Los más pedidos esta semana en Popayán</p>
+        </div>
+        <div class="mini-grid" id="featuredMini"></div>
+      </aside>
+    </section>
+
+    <!-- ══ STATS ═══════════════════════════════════════ -->
+    <div class="stats-bar anim-up d2">
+      <div class="stat-card">
+        <div class="stat-ico green">🌿</div>
+        <div><div class="stat-num">12+</div><div class="stat-lbl">Productos disponibles</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-ico amber">⭐</div>
+        <div><div class="stat-num">4.9</div><div class="stat-lbl">Calificación clientes</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-ico blue">🚚</div>
+        <div><div class="stat-num">24h</div><div class="stat-lbl">Tiempo de respuesta</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-ico pink">💯</div>
+        <div><div class="stat-num">100%</div><div class="stat-lbl">Originales garantizados</div></div>
+      </div>
+    </div>
+
+    <!-- ══ CÓMO FUNCIONA ═══════════════════════════════ -->
+    <div class="steps-section anim-up d3" id="como-funciona">
+      <div class="section-eyebrow">Así de fácil</div>
+      <h2 class="section-title">Haz tu pedido en 4 pasos</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-ico">🔍</div>
+          <h4>Explora el catálogo</h4>
+          <p>Busca por categoría o nombre. Filtra por objetivo: energía, nutrición, deporte y más.</p>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-ico">🛒</div>
+          <h4>Agrega al carrito</h4>
+          <p>Selecciona los productos o combos que quieres. Ajusta cantidades al instante.</p>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-ico">📋</div>
+          <h4>Completa tus datos</h4>
+          <p>Ingresa nombre, dirección y método de pago. Solo toma un minuto.</p>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <div class="step-ico">💬</div>
+          <h4>Confirma por WhatsApp</h4>
+          <p>Tu pedido llega listo al chat. Lo confirmamos y coordinamos el envío contigo.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ CATEGORIAS + BÚSQUEDA ═══════════════════════ -->
+    <section class="section anim-up d3" id="categorias">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">Categorías</div>
+          <h2 class="section-title" style="margin-bottom:0">Encuentra lo que necesitas</h2>
+        </div>
+        <p class="section-lead">Selecciona una categoría y explora los productos relacionados al instante.</p>
+      </div>
+
+      <div class="toolbar">
+        <div class="chip-row" id="categoryChips"></div>
+        <input class="search-box" id="searchInput" type="search"
+          placeholder="Buscar producto…" aria-label="Buscar producto" />
+      </div>
+
+      <div class="results-meta">
+        <strong id="resultsCount">0 suplementos</strong>
+        <span id="filterLabel">Mostrando todo el portafolio</span>
+      </div>
+
+      <div class="cat-preview-strip" id="catPreview"></div>
+    </section>
+
+    <!-- ══ COMBOS ══════════════════════════════════════ -->
+    <section class="section anim-up d3" id="combos">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">Combos sugeridos</div>
+          <h2 class="section-title" style="margin-bottom:0">Arma tu rutina completa</h2>
+        </div>
+        <p class="section-lead">Combinaciones recomendadas para empezar más fácil y ahorrar tiempo eligiendo.</p>
+      </div>
+      <div class="combo-grid" id="comboGrid"></div>
+    </section>
+
+    <!-- ══ PRODUCTOS ═══════════════════════════════════ -->
+    <section class="section anim-up d3" id="productos">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">Catálogo completo</div>
+          <h2 class="section-title" style="margin-bottom:0">Suplementos listos para pedir</h2>
+        </div>
+        <p class="section-lead">Mira, compara y agrega al carrito. Todos los precios incluyen IVA.</p>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+      <div class="empty-state" id="emptyState">
+        <div class="icon">🔍</div>
+        <strong>Sin resultados</strong>
+        <p style="margin-top:8px">Prueba otra categoría o limpia el buscador.</p>
+      </div>
+    </section>
+
+    <!-- ══ TESTIMONIALS ════════════════════════════════ -->
+    <section class="testimonials-section anim-up d3" id="testimonios">
+      <div class="section-eyebrow" style="position:relative;z-index:1">Clientes reales</div>
+      <h2 class="section-title" style="color:#fff;position:relative;z-index:1">Lo que dicen nuestros clientes</h2>
+      <div class="testi-grid" style="position:relative;z-index:1">
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">"Llevo 3 meses con Omniplus y Aloe Beta. Me siento con más energía y mi digestión mejoró notablemente. El servicio es rapidísimo."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">MC</div>
+            <div>
+              <div class="testi-name">María C.</div>
+              <div class="testi-city">Popayán, Cauca</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">"Empecé con el Combo Rutina Activa y los resultados en el gimnasio han sido increíbles. Los productos llegaron rápido y completamente originales."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">JR</div>
+            <div>
+              <div class="testi-name">Julián R.</div>
+              <div class="testi-city">Cali, Valle</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">"Pedir fue súper fácil por WhatsApp. Me atendieron al instante, me asesoraron sobre qué producto era mejor para mí y llegó el mismo día."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">AP</div>
+            <div>
+              <div class="testi-name">Andrea P.</div>
+              <div class="testi-city">Popayán, Cauca</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ PEDIDO ═══════════════════════════════════════ -->
+    <section class="section anim-up d3" id="pedido">
+      <div class="section-header">
+        <div>
+          <div class="section-eyebrow">Tu pedido</div>
+          <h2 class="section-title" style="margin-bottom:0">Completa y enviamos por WhatsApp</h2>
+        </div>
+        <p class="section-lead">Revisamos disponibilidad, coordinamos envío y te confirmamos todo por chat.</p>
+      </div>
+
+      <div class="order-layout">
+        <!-- Info del vendedor -->
+        <div class="service-card">
+          <div class="panel-label" style="margin-bottom:20px">Atención directa y personalizada</div>
+          <h3>Siempre a tu lado en cada pedido 🌿</h3>
+          <p>Confirmamos disponibilidad, resolvemos dudas y coordinamos el envío contigo. Nunca te quedas sin respuesta.</p>
+
+          <div class="service-perks">
+            <div class="perk">
+              <div class="perk-ico">📦</div>
+              <div class="perk-text">
+                <strong>Envíos a domicilio</strong>
+                <span>Popayán y otras ciudades de Colombia. Coordinamos contigo el tiempo de entrega.</span>
+              </div>
+            </div>
+            <div class="perk">
+              <div class="perk-ico">🔒</div>
+              <div class="perk-text">
+                <strong>Productos 100% originales</strong>
+                <span>Todos nuestros suplementos son directamente de Omnilife. Garantía total de autenticidad.</span>
+              </div>
+            </div>
+            <div class="perk">
+              <div class="perk-ico">💬</div>
+              <div class="perk-text">
+                <strong>Asesoría personalizada gratis</strong>
+                <span>Te ayudamos a elegir el suplemento ideal según tus objetivos y estilo de vida.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-meta">
+            <div class="meta-item">
+              <strong>Envíos</strong>
+              <span>Popayán y más ciudades</span>
+            </div>
+            <div class="meta-item">
+              <strong>Canal</strong>
+              <span>WhatsApp comercial</span>
+            </div>
+            <div class="meta-item">
+              <strong>Horario</strong>
+              <span>Lun–Sáb 8am–7pm</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carrito y form -->
+        <div class="checkout-card">
+          <div class="panel-label" style="background:rgba(27,67,50,.08);border-color:rgba(27,67,50,.15);color:var(--forest)">Tu carrito</div>
+          <h3>Resumen de compra</h3>
+          <p class="checkout-sub">Revisa los productos y completa tus datos para continuar.</p>
+
+          <div class="cart-list" id="cartList">
+            <div class="cart-empty">Aún no agregaste productos. Explora el catálogo o elige un combo.</div>
+          </div>
+
+          <div class="cart-total">
+            <span>Total del pedido</span>
+            <strong id="cartTotal">$0</strong>
+          </div>
+
+          <div class="error-box" id="errorBox"></div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="nombre">Nombre completo *</label>
+              <input id="nombre" type="text" placeholder="Tu nombre completo" autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="telefono">Teléfono *</label>
+              <input id="telefono" type="tel" placeholder="312 000 0000" autocomplete="tel" />
+            </div>
+            <div class="field full">
+              <label for="correo">Correo electrónico</label>
+              <input id="correo" type="email" placeholder="Opcional" autocomplete="email" />
+            </div>
+            <div class="field">
+              <label for="documento">Documento</label>
+              <input id="documento" type="text" placeholder="Cédula o NIT" />
+            </div>
+            <div class="field">
+              <label for="barrio">Barrio / Sector</label>
+              <input id="barrio" type="text" placeholder="Barrio o vereda" />
+            </div>
+            <div class="field full">
+              <label for="direccion">Dirección de envío *</label>
+              <input id="direccion" type="text" placeholder="Dirección completa" autocomplete="street-address" />
+            </div>
+            <div class="field">
+              <label for="ciudad">Ciudad *</label>
+              <input id="ciudad" type="text" placeholder="Popayán" autocomplete="address-level2" />
+            </div>
+            <div class="field">
+              <label for="departamento">Departamento *</label>
+              <input id="departamento" type="text" placeholder="Cauca" autocomplete="address-level1" />
+            </div>
+            <div class="field">
+              <label for="codigoPostal">Código postal</label>
+              <input id="codigoPostal" type="text" placeholder="Opcional" autocomplete="postal-code" />
+            </div>
+            <div class="field">
+              <label for="metodoPago">Método de pago</label>
+              <select id="metodoPago">
+                <option value="Transferencia bancaria">Transferencia bancaria</option>
+                <option value="Qr">Qr</option>
+                <option value="Bre-B">Bre-B</option>
+                <option value="Nequi">Nequi</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="referencia">Punto de referencia</label>
+              <input id="referencia" type="text" placeholder="Conjunto, torre, piso o referencia cercana" />
+            </div>
+            <div class="field full">
+              <label for="notas">Notas del pedido</label>
+              <textarea id="notas" placeholder="Horario sugerido, observaciones especiales, etc."></textarea>
+            </div>
+          </div>
+
+          <div class="status-box" id="statusBox"></div>
+
+          <div class="checkout-actions">
+            <button class="btn btn-wa" id="sendOrderBtn" type="button" style="font-size:1rem;min-height:52px;">
+              💬 Enviar pedido por WhatsApp
+            </button>
+            <button class="btn btn-outline" id="downloadOrdersBtn" type="button">
+              Descargar respaldo CSV
+            </button>
+            <button class="btn btn-outline" id="clearCartBtn" type="button">
+              🗑 Vaciar carrito
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ FOOTER ══════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h4>Natural Plus Life 🌿</h4>
+        <p>Distribuidor independiente Omnilife en Popayán, Cauca. Suplementos originales para tu bienestar con atención personalizada y envío a todo Colombia.</p>
+        <div class="omnilife-seal" style="margin-top:16px">⭐ Distribuidor Omnilife autorizado</div>
+      </div>
+      <div style="display:flex;gap:48px;flex-wrap:wrap">
+        <div class="footer-links">
+          <h5>Navegación</h5>
+          <a href="#inicio">Inicio</a>
+          <a href="#como-funciona">Cómo funciona</a>
+          <a href="#combos">Combos</a>
+          <a href="#productos">Productos</a>
+          <a href="#pedido">Hacer pedido</a>
+        </div>
+        <div class="footer-links">
+          <h5>Contacto</h5>
+          <a id="footerWa" href="https://wa.me/573122538665" target="_blank" rel="noreferrer">💬 WhatsApp directo</a>
+          <a href="#pedido">📋 Formulario de pedido</a>
+          <a href="#testimonios">⭐ Testimonios</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Natural Plus Life · Popayán, Cauca, Colombia</span>
+      <span>Productos Omnilife originales · Distribuidor independiente</span>
+    </div>
+  </footer>
+
+</div><!-- /wrap -->
+
+<!-- FLOATING WA -->
+<a class="wa-float" id="floatWa" href="https://wa.me/573122538665" target="_blank" rel="noreferrer">
+  <span class="live-dot"></span>
+  💬 WhatsApp ahora
+</a>
+
+<!-- ══════════════════ SCRIPT ═════════════════════════ -->
+<script>
+  /* ─── CONFIG ─────────────────────────────────────── */
+  const brand = {
+    name: "Natural Plus Life",
+    tagline: "Nutrición, bienestar y equilibrio",
+    whatsapp: "573122538665",
+    phone: "312 253 8665",
+    city: "Popayán",
+  };
+
+  // Pega aquí la URL del Web App de Google Apps Script para registrar pedidos
+  const spreadsheetConfig = { endpoint: "", sheetName: "Pedidos Web" };
+  const localOrdersStorageKey = "natural-plus-life-orders";
+
+  function createFallbackProductImage(name, accent, softAccent) {
+    const initials = name
+      .split(" ")
+      .slice(0, 2)
+      .map(word => word.charAt(0))
+      .join("")
+      .toUpperCase();
+
+    const svg = `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 720">
+        <defs>
+          <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#fffdf9" />
+            <stop offset="100%" stop-color="#f3ece3" />
+          </linearGradient>
+          <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="${accent}" />
+            <stop offset="100%" stop-color="${softAccent}" />
+          </linearGradient>
+        </defs>
+        <rect width="640" height="720" rx="48" fill="url(#bg)" />
+        <circle cx="510" cy="122" r="88" fill="${softAccent}" opacity="0.28" />
+        <circle cx="118" cy="124" r="70" fill="${accent}" opacity="0.14" />
+        <rect x="124" y="124" width="392" height="472" rx="36" fill="white" />
+        <rect x="154" y="176" width="332" height="308" rx="28" fill="url(#card)" />
+        <circle cx="320" cy="248" r="64" fill="white" opacity="0.18" />
+        <text x="320" y="368" text-anchor="middle" fill="white" font-family="DM Sans, Arial, sans-serif" font-size="72" font-weight="800">${initials}</text>
+        <text x="320" y="542" text-anchor="middle" fill="#0f172a" font-family="DM Sans, Arial, sans-serif" font-size="28" font-weight="700">${name}</text>
+        <text x="320" y="580" text-anchor="middle" fill="#64748b" font-family="DM Sans, Arial, sans-serif" font-size="20">Natural Plus Life</text>
+      </svg>
+    `;
+
+    return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+  }
+
+  const logoFallbackImage = createFallbackProductImage("Natural Plus", "#1b4332", "#c9a24e");
+
+  /* ─── PRODUCTOS ──────────────────────────────────── */
+  const products = [
+    { id:1, name:"Omniplus", category:"Bienestar", price:184550, benefit:"Bienestar diario", description:"Concentrado de frutas para bebidas con vitaminas y minerales en una rutina de uso diario.", tags:["Frutas","Rutina diaria","Vitaminas"], accent:"#ff6a1f", softAccent:"#fff1e5", image:"assets/products/omniplus.png" },
+    { id:2, name:"Biocros Supreme", category:"Energía", price:123500, benefit:"Energía sostenida", description:"Mezcla energizante en polvo pensada para días exigentes, enfoque y movimiento.", tags:["Energía","Rutina activa","Enfoque"], accent:"#ff2f92", softAccent:"#ffe3f1", image:"assets/products/biocros-supreme.png" },
+    { id:3, name:"One C Mix", category:"Defensas", price:112000, benefit:"Apoyo antioxidante", description:"Suplemento con vitaminas, minerales, cisteína, taurina y glutatión para una rutina activa.", tags:["Vitaminas","Antioxidante","Defensas"], accent:"#ffd64f", softAccent:"#fff6d6", image:"assets/products/one-c-mix.png" },
+    { id:4, name:"Aqtua Supreme", category:"Rendimiento", price:205650, benefit:"Rendimiento diario", description:"Mezcla sabor mandarina con coenzima Q10 y L-carnitina para acompañar días activos.", tags:["Rutina","Mandarina","Activos"], accent:"#2168cf", softAccent:"#deebff", image:"assets/products/aqtua-supreme.png" },
+    { id:5, name:"Shake Supreme", category:"Nutrición", price:173700, benefit:"Nutrición proteica", description:"Proteína de soya sabor fresa silvestre para desayunos, meriendas o acompañamiento nutricional.", tags:["Proteína","Fresa","Práctico"], accent:"#ff3ea4", softAccent:"#ffe1f1", image:"assets/products/shake-supreme.png" },
+    { id:6, name:"Pump Supreme", category:"Deporte", price:160500, benefit:"Apoyo muscular", description:"Preparación proteica cookies and cream para entrenamiento, recuperación y saciedad.", tags:["Entrenamiento","Proteína","Cookies"], accent:"#7d4a2d", softAccent:"#efe1d8", image:"assets/products/pump-supreme.png" },
+    { id:7, name:"Cognios", category:"Familia", price:169600, benefit:"Enfoque familiar", description:"Suplemento sabor lima limón para una rutina familiar orientada a enfoque y bienestar.", tags:["Familia","Lima limón","Bienestar"], accent:"#76c92e", softAccent:"#ebfadf", image:"assets/products/cognios.png" },
+    { id:8, name:"Supermix", category:"Nutrición", price:166150, benefit:"Nutrición completa", description:"Mezcla con proteína de soya, vitaminas, minerales, probióticos y DHA sabor vainilla.", tags:["Vainilla","Completo","Diario"], accent:"#17a7ee", softAccent:"#dff3ff", image:"assets/products/supermix.png" },
+    { id:9, name:"Aloe Beta", category:"Digestión", price:65000, benefit:"Bienestar digestivo", description:"Bebida refrescante sabor piña para acompañar rutinas de ligereza y bienestar digestivo.", tags:["Piña","Ligereza","Digestivo"], accent:"#f3b500", softAccent:"#fff4c9", image:"assets/products/aloe-beta.png" },
+    { id:10, name:"Dolce Vita", category:"Control", price:167600, benefit:"Balance diario", description:"Preparación con fibra sabor toronja para quienes buscan una rutina de control y equilibrio.", tags:["Toronja","Fibra","Balance"], accent:"#ff2f8c", softAccent:"#ffe0ef", image:"assets/products/dolce-vita.png" },
+    { id:11, name:"Homo Plus", category:"Especializados", price:140950, benefit:"Bienestar masculino", description:"Mezcla con licopeno, vitaminas y minerales para una rutina masculina especializada.", tags:["Hombre","Especializado","Licopeno"], accent:"#0070df", softAccent:"#dceeff", image:"assets/products/homo-plus.png" },
+    { id:12, name:"Flu-Y", category:"Defensas", price:103950, benefit:"Defensas y equilibrio", description:"Cápsulas con extracto de naranja dulce y magnesio para acompañar tus defensas de forma práctica.", tags:["Cápsulas","Defensas","Magnesio"], accent:"#1dd3cd", softAccent:"#ddfbfa", image:"assets/products/flu-y.png" },
+  ];
+
+  products.forEach(function (product) {
+    product.fallbackImage = createFallbackProductImage(product.name, product.accent, product.softAccent);
+  });
+
+  const combos = [
+    { id:"defensas",      title:"Combo Defensas",      subtitle:"Energía y apoyo antioxidante",    productIds:[2,3,12] },
+    { id:"balance-diario",title:"Combo Balance Diario",subtitle:"Bienestar, digestión y control",  productIds:[1,9,10] },
+    { id:"rutina-activa", title:"Combo Rutina Activa", subtitle:"Nutrición y movimiento",           productIds:[4,5,6]  },
+  ];
+
+  /* ─── STATE ──────────────────────────────────────── */
+  const state = {
+    category: "Todos",
+    search: "",
+    cart: [],
+    form: {
+      nombre:"", telefono:"", correo:"", documento:"",
+      barrio:"", direccion:"", ciudad: brand.city,
+      departamento:"Cauca", codigoPostal:"",
+      metodoPago:"Transferencia bancaria", referencia:"", notas:"",
+    },
+  };
+
+  /* ─── DERIVED DATA ───────────────────────────────── */
+  const productMap = new Map(products.map(p => [p.id, p]));
+  const categories  = ["Todos", ...new Set(products.map(p => p.category))];
+  const comboDetails = combos.map(c => {
+    const items = c.productIds.map(id => productMap.get(id)).filter(Boolean);
+    return { ...c, items, price: items.reduce((s,i) => s + i.price, 0) };
+  });
+
+  /* ─── HELPERS ────────────────────────────────────── */
+  const fmt = v => new Intl.NumberFormat("es-CO",{style:"currency",currency:"COP",maximumFractionDigits:0}).format(v);
+  const waLink = msg => `https://api.whatsapp.com/send?phone=${brand.whatsapp}&text=${encodeURIComponent(msg)}`;
+
+  function getStoredOrders() {
+    try {
+      const raw = window.localStorage.getItem(localOrdersStorageKey);
+      const parsed = raw ? JSON.parse(raw) : [];
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (error) {
+      console.warn("No se pudo leer el respaldo local de pedidos:", error);
+      return [];
+    }
+  }
+
+  function saveOrderLocally(payload) {
+    try {
+      const orders = getStoredOrders();
+      orders.push(payload);
+      window.localStorage.setItem(localOrdersStorageKey, JSON.stringify(orders));
+      return { ok: true, count: orders.length };
+    } catch (error) {
+      console.warn("No se pudo guardar el pedido en el respaldo local:", error);
+      return { ok: false, error };
+    }
+  }
+
+  function csvCell(value) {
+    const safeValue = value === null || value === undefined ? "" : value;
+    const text = String(safeValue).replace(/\r?\n/g, " ").trim();
+    return /[",;\n]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
+  }
+
+  function buildOrdersCsv(orders) {
+    const header = [
+      "Fecha local",
+      "Fecha ISO",
+      "Pedido ID",
+      "Cliente",
+      "Telefono",
+      "Correo",
+      "Documento",
+      "Direccion",
+      "Barrio",
+      "Ciudad",
+      "Departamento",
+      "Codigo postal",
+      "Referencia",
+      "Metodo de pago",
+      "Cantidad de items",
+      "Total COP",
+      "Productos",
+      "Notas",
+      "JSON completo del pedido",
+    ];
+
+    const rows = orders.map(order => {
+      const customer = order.customer || {};
+      const items = Array.isArray(order.items) ? order.items : [];
+      const products = items
+        .map(item => `${item.name || ""} x${item.qty || 0} = ${fmt(item.total || 0)}`)
+        .join(" | ");
+
+      return [
+        order.createdAtLocal || "",
+        order.createdAtIso || "",
+        order.orderId || "",
+        customer.nombre || "",
+        customer.telefono || "",
+        customer.correo || "",
+        customer.documento || "",
+        customer.direccion || "",
+        customer.barrio || "",
+        customer.ciudad || "",
+        customer.departamento || "",
+        customer.codigoPostal || "",
+        customer.referencia || "",
+        customer.metodoPago || "",
+        order.itemCount || 0,
+        order.total || 0,
+        products,
+        customer.notas || "",
+        JSON.stringify(order),
+      ].map(csvCell).join(";");
+    });
+
+    return [header.map(csvCell).join(";"), ...rows].join("\n");
+  }
+
+  function downloadStoredOrdersCsv() {
+    const orders = getStoredOrders();
+    if (!orders.length) {
+      showStatus("Todavía no hay pedidos guardados en este navegador.", "warning");
+      setTimeout(hideStatus, 3000);
+      return;
+    }
+
+    const stamp = new Date().toISOString().slice(0, 19).replace(/[:T]/g, "-");
+    const blob = new Blob(["\uFEFF" + buildOrdersCsv(orders)], {
+      type: "text/csv;charset=utf-8;",
+    });
+    const url = window.URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = `pedidos-natural-plus-life-${stamp}.csv`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    window.URL.revokeObjectURL(url);
+
+    showStatus("Respaldo CSV descargado correctamente.", "success");
+    setTimeout(hideStatus, 3000);
+  }
+
+  function sendOrderToSpreadsheet(payload) {
+    if (!spreadsheetConfig.endpoint) return;
+
+    fetch(spreadsheetConfig.endpoint, {
+      method:"POST",
+      mode:"no-cors",
+      keepalive:true,
+      headers:{"Content-Type":"text/plain;charset=utf-8"},
+      body: JSON.stringify(payload),
+    }).catch(error => {
+      console.warn("No se pudo registrar el pedido en Google Sheets:", error);
+    });
+  }
+
+  /* ─── INIT EXTERNAL LINKS ───────────────────────── */
+  function initLinks() {
+    const brandIcon = document.getElementById("brandIcon");
+    const adv = `Hola, quiero asesoría sobre productos de ${brand.name}.`;
+    const inf = `Hola, quiero información sobre los productos de ${brand.name}.`;
+    const ord = `Hola, quiero hacer un pedido con ${brand.name}.`;
+    if (brandIcon) {
+      brandIcon.onerror = function () {
+        this.onerror = null;
+        this.src = logoFallbackImage;
+      };
+    }
+    document.getElementById("headerWa").href = waLink(inf);
+    document.getElementById("heroWa").href    = waLink(adv);
+    document.getElementById("floatWa").href   = waLink(ord);
+    document.getElementById("footerWa").href  = waLink(adv);
+  }
+
+  /* ─── RENDER FEATURED ────────────────────────────── */
+  function renderFeatured() {
+    document.getElementById("featuredMini").innerHTML = products.slice(0,4).map(p => `
+      <div class="mini-card">
+        <div class="mini-thumb">
+          <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='${p.fallbackImage}'" />
+        </div>
+        <div class="mini-card-name">${p.name}</div>
+        <div class="mini-card-cat">${p.category}</div>
+        <div class="mini-card-price">${fmt(p.price)}</div>
+      </div>`).join("");
+  }
+
+  /* ─── RENDER CATEGORIES ──────────────────────────── */
+  function renderCategories() {
+    document.getElementById("categoryChips").innerHTML = categories.map(cat => `
+      <button class="chip${cat===state.category?" active":""}" type="button" data-cat="${cat}">${cat}</button>`
+    ).join("");
+  }
+
+  /* ─── FILTERED PRODUCTS ──────────────────────────── */
+  function getFiltered() {
+    const q = state.search.trim().toLowerCase();
+    return products.filter(p => {
+      const cat = state.category === "Todos" || p.category === state.category;
+      const txt = [p.name,p.category,p.benefit,p.description,...p.tags].join(" ").toLowerCase();
+      return cat && (!q || txt.includes(q));
+    });
+  }
+
+  /* ─── RENDER CAT PREVIEW ─────────────────────────── */
+  function renderCatPreview(filtered) {
+    const preview = filtered.slice(0,4);
+    const el = document.getElementById("catPreview");
+    if (!preview.length) { el.innerHTML = ""; return; }
+    el.innerHTML = preview.map(p => `
+      <div class="cat-preview-card">
+        <div class="cat-preview-img" style="background:linear-gradient(145deg,${p.softAccent},#fff)">
+          <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='${p.fallbackImage}'" />
+        </div>
+        <div class="cat-preview-body">
+          <h4>${p.name}</h4>
+          <div class="benefit">${p.benefit}</div>
+          <div class="price">${fmt(p.price)}</div>
+          <button class="btn btn-primary add-btn" data-add="${p.id}">Agregar</button>
+        </div>
+      </div>`).join("");
+  }
+
+  /* ─── RENDER COMBOS ──────────────────────────────── */
+  function renderCombos() {
+    document.getElementById("comboGrid").innerHTML = comboDetails.map(c => `
+      <article class="combo-card">
+        <div class="combo-top">
+          <div class="combo-avatars">
+            ${c.items.slice(0,3).map(p=>`<div class="combo-avatar"><img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='${p.fallbackImage}'"/></div>`).join("")}
+          </div>
+          <span class="combo-badge">Combo</span>
+        </div>
+        <h3>${c.title}</h3>
+        <p>${c.subtitle}</p>
+        <ul class="combo-items">
+          ${c.items.map(p=>`<li>${p.name}</li>`).join("")}
+        </ul>
+        <div class="combo-footer">
+          <div>
+            <div class="combo-price">${fmt(c.price)}</div>
+            <div class="combo-savings">3 productos juntos</div>
+          </div>
+          <button class="btn btn-primary" data-add-combo="${c.id}">Agregar combo</button>
+        </div>
+      </article>`).join("");
+  }
+
+  /* ─── RENDER PRODUCTS ────────────────────────────── */
+  function renderProducts(filtered) {
+    const cnt = document.getElementById("resultsCount");
+    const lbl = document.getElementById("filterLabel");
+    const grid = document.getElementById("productGrid");
+    const empty = document.getElementById("emptyState");
+
+    cnt.textContent = filtered.length + (filtered.length===1?" suplemento":" suplementos");
+    lbl.textContent = state.search ? `Búsqueda: "${state.search}" · ${state.category}` :
+                      state.category === "Todos" ? "Mostrando todo el portafolio" : `Categoría: ${state.category}`;
+
+    empty.style.display = filtered.length ? "none" : "block";
+    grid.innerHTML = filtered.map(p => `
+      <article class="product-card">
+        <div class="product-media" style="background:linear-gradient(145deg,${p.softAccent},#fff)">
+          <span class="product-cat-tag">${p.category}</span>
+          <img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='${p.fallbackImage}'" />
+        </div>
+        <div class="product-body">
+          <h3>${p.name}</h3>
+          <div class="product-benefit">${p.benefit}</div>
+          <p class="product-desc">${p.description}</p>
+          <div class="product-tags">${p.tags.map(t=>`<span class="product-tag">${t}</span>`).join("")}</div>
+          <div class="product-footer">
+            <span class="product-price">${fmt(p.price)}</span>
+            <div style="display:flex;gap:8px;align-items:center">
+              <button class="btn btn-primary" style="min-height:40px;padding:0 16px;font-size:.85rem" data-add="${p.id}">Agregar</button>
+              <a class="product-wa-btn" href="${waLink("Hola, quiero información del producto "+p.name+" en "+brand.name)}" target="_blank" rel="noreferrer" title="Consultar por WhatsApp">💬</a>
+            </div>
+          </div>
+        </div>
+      </article>`).join("");
+  }
+
+  /* ─── RENDER CATALOG ─────────────────────────────── */
+  function renderCatalog() {
+    const f = getFiltered();
+    renderCategories();
+    renderCatPreview(f);
+    renderProducts(f);
+  }
+
+  /* ─── CART ───────────────────────────────────────── */
+  function cartCount() { return state.cart.reduce((s,i)=>s+i.qty,0); }
+  function cartTotal() { return state.cart.reduce((s,i)=>s+i.qty*i.price,0); }
+
+  function renderCart() {
+    const count = cartCount();
+    const total = cartTotal();
+    document.getElementById("cartCount").textContent = count;
+    document.getElementById("cartTotal").textContent = fmt(total);
+
+    const list = document.getElementById("cartList");
+    if (!state.cart.length) {
+      list.innerHTML = `<div class="cart-empty">Aún no has agregado productos. Explora el catálogo o elige un combo sugerido.</div>`;
+      return;
+    }
+    list.innerHTML = state.cart.map(item => `
+      <div class="cart-item">
+        <div>
+          <strong>${item.name}</strong>
+          <span>${fmt(item.price)} c/u</span>
+          <span style="color:var(--forest);font-weight:700">Subtotal: ${fmt(item.price*item.qty)}</span>
+        </div>
+        <div class="qty-controls">
+          <button class="qty-btn" data-qty="${item.id}" data-delta="-1">−</button>
+          <span class="qty-val">${item.qty}</span>
+          <button class="qty-btn" data-qty="${item.id}" data-delta="1">+</button>
+        </div>
+      </div>`).join("");
+  }
+
+  function addToCart(id, qty=1) {
+    const p = productMap.get(Number(id));
+    if (!p) return;
+    const ex = state.cart.find(i=>i.id===p.id);
+    if (ex) ex.qty += qty;
+    else state.cart.push({...p, qty});
+    renderCart();
+    // small feedback
+    showStatus("✅ " + p.name + " agregado al carrito.", "success");
+    setTimeout(hideStatus, 2500);
+  }
+
+  function addCombo(comboId) {
+    const c = comboDetails.find(x=>x.id===comboId);
+    if (!c) return;
+    c.items.forEach(p => addToCart(p.id, 1));
+  }
+
+  function updateQty(id, delta) {
+    state.cart = state.cart
+      .map(i => i.id===Number(id) ? {...i, qty: Math.max(0, i.qty+delta)} : i)
+      .filter(i=>i.qty>0);
+    hideStatus();
+    renderCart();
+  }
+
+  function clearCart() {
+    state.cart = [];
+    hideStatus(); hideError();
+    renderCart();
+  }
+
+  /* ─── MESSAGES ───────────────────────────────────── */
+  function showError(msg) {
+    const b = document.getElementById("errorBox");
+    b.textContent = msg; b.style.display = "block";
+  }
+  function hideError() {
+    const b = document.getElementById("errorBox");
+    b.textContent = ""; b.style.display = "none";
+  }
+  function showStatus(msg, tone="success") {
+    const b = document.getElementById("statusBox");
+    b.textContent = msg; b.className = "status-box " + tone; b.style.display = "block";
+  }
+  function hideStatus() {
+    const b = document.getElementById("statusBox");
+    b.textContent = ""; b.className = "status-box"; b.style.display = "none";
+  }
+
+  /* ─── FORM SYNC ──────────────────────────────────── */
+  const formFields = new Set(Object.keys(state.form));
+  function hydrateForm() {
+    Object.keys(state.form).forEach(k => {
+      const el = document.getElementById(k);
+      if (el) el.value = state.form[k];
+    });
+  }
+
+  /* ─── VALIDATE & SUBMIT ──────────────────────────── */
+  function validate() {
+    if (!state.cart.length) return "Agrega al menos un producto antes de enviar.";
+    if (!state.form.nombre.trim()) return "Escribe tu nombre completo.";
+    if (state.form.telefono.trim().replace(/\D/g,"").length < 7) return "Escribe un teléfono válido.";
+    if (!state.form.direccion.trim()) return "Escribe la dirección de envío.";
+    if (!state.form.ciudad.trim()) return "Escribe la ciudad.";
+    if (!state.form.departamento.trim()) return "Escribe el departamento.";
+    if (state.form.correo.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.form.correo.trim())) return "El correo no parece válido.";
+    return "";
+  }
+
+  function buildOrderId(d) {
+    return "NPL-" +
+      [d.getFullYear(), String(d.getMonth()+1).padStart(2,"0"), String(d.getDate()).padStart(2,"0")].join("") + "-" +
+      [String(d.getHours()).padStart(2,"0"), String(d.getMinutes()).padStart(2,"0"), String(d.getSeconds()).padStart(2,"0")].join("");
+  }
+
+  function buildPayload() {
+    const now = new Date();
+    return {
+      orderId: buildOrderId(now),
+      createdAtIso: now.toISOString(),
+      createdAtLocal: new Intl.DateTimeFormat("es-CO",{dateStyle:"short",timeStyle:"short"}).format(now),
+      brand: brand.name,
+      sheetName: spreadsheetConfig.sheetName,
+      customer: {
+        nombre: state.form.nombre.trim(),
+        telefono: state.form.telefono.trim(),
+        correo: state.form.correo.trim(),
+        documento: state.form.documento.trim(),
+        barrio: state.form.barrio.trim(),
+        direccion: state.form.direccion.trim(),
+        ciudad: state.form.ciudad.trim(),
+        departamento: state.form.departamento.trim(),
+        codigoPostal: state.form.codigoPostal.trim(),
+        metodoPago: state.form.metodoPago.trim(),
+        referencia: state.form.referencia.trim(),
+        notas: state.form.notas.trim(),
+      },
+      itemCount: cartCount(),
+      total: cartTotal(),
+      items: state.cart.map(i => ({
+        id:i.id,
+        name:i.name,
+        category:i.category,
+        qty:i.qty,
+        price:i.price,
+        total:i.qty*i.price,
+      })),
+    };
+  }
+
+  function buildWaMessage(payload) {
+    const c = payload.customer;
+    const lines = [
+      `Hola, quiero hacer un pedido con ${brand.name}.`,
+      "",
+      `📋 Pedido: ${payload.orderId}`,
+      `📅 Fecha: ${payload.createdAtLocal}`,
+      `👤 Cliente: ${c.nombre}`,
+      `📞 Teléfono: ${c.telefono}`,
+      `📧 Correo: ${c.correo||"No registrado"}`,
+      `🪪 Documento: ${c.documento||"No registrado"}`,
+      `📍 Dirección: ${c.direccion}`,
+      `🏘 Barrio: ${c.barrio||"No registrado"}`,
+      `🏙 Ciudad: ${c.ciudad}`,
+      `🗺 Departamento: ${c.departamento}`,
+      `📮 Cód. postal: ${c.codigoPostal||"No registrado"}`,
+      `🔑 Referencia: ${c.referencia||"No registrada"}`,
+      `💳 Pago: ${c.metodoPago}`,
+      `📝 Notas: ${c.notas||"Ninguna"}`,
+      "",
+      "🛒 PRODUCTOS:",
+      ...payload.items.map(i => `  • ${i.name} x${i.qty} = ${fmt(i.total)}`),
+      "",
+      `💰 TOTAL: ${fmt(payload.total)}`,
+    ];
+    return lines.join("\n");
+  }
+
+  function submitOrder() {
+    const err = validate();
+    if (err) { showError(err); return; }
+    hideError();
+    hideStatus();
+
+    const payload = buildPayload();
+    saveOrderLocally(payload);
+    document.getElementById("sendOrderBtn").disabled = true;
+    sendOrderToSpreadsheet(payload);
+    window.location.href = waLink(buildWaMessage(payload));
+  }
+
+  /* ─── EVENTS ─────────────────────────────────────── */
+  document.addEventListener("click", e => {
+    // menu toggle
+    if (e.target.closest("#menuToggle")) {
+      const btn = document.getElementById("menuToggle");
+      const nav = document.getElementById("navArea");
+      const open = nav.classList.toggle("open");
+      btn.classList.toggle("open", open);
+      btn.setAttribute("aria-expanded", open);
+      return;
+    }
+    // close menu on nav link click (mobile)
+    if (e.target.closest(".nav a") && window.innerWidth <= 820) {
+      document.getElementById("navArea").classList.remove("open");
+      document.getElementById("menuToggle").classList.remove("open");
+    }
+
+    // category chip
+    const chip = e.target.closest("[data-cat]");
+    if (chip) { state.category = chip.dataset.cat; renderCatalog(); return; }
+
+    // add product (from any button with data-add)
+    const addBtn = e.target.closest("[data-add]");
+    if (addBtn) { addToCart(addBtn.dataset.add); return; }
+
+    // add combo
+    const comboBtn = e.target.closest("[data-add-combo]");
+    if (comboBtn) { addCombo(comboBtn.dataset.addCombo); return; }
+
+    // qty controls
+    const qtyBtn = e.target.closest("[data-qty]");
+    if (qtyBtn) { updateQty(qtyBtn.dataset.qty, Number(qtyBtn.dataset.delta)); return; }
+
+    // download local backup
+    if (e.target.closest("#downloadOrdersBtn")) { downloadStoredOrdersCsv(); return; }
+
+    // clear cart
+    if (e.target.closest("#clearCartBtn")) { clearCart(); return; }
+
+    // submit order
+    if (e.target.closest("#sendOrderBtn")) { submitOrder(); return; }
+  });
+
+  document.addEventListener("input", e => {
+    const t = e.target;
+    if (t.id === "searchInput") { state.search = t.value; renderCatalog(); }
+    else if (formFields.has(t.id)) { state.form[t.id] = t.value; hideError(); }
+  });
+  document.addEventListener("change", e => {
+    if (formFields.has(e.target.id)) { state.form[e.target.id] = e.target.value; }
+  });
+
+  /* ─── SCROLL ANIMATIONS ──────────────────────────── */
+  if ("IntersectionObserver" in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (en.isIntersecting) {
+          en.target.style.opacity = "1";
+          en.target.style.transform = "translateY(0)";
+          obs.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll(".section, .steps-section, .testimonials-section, .stat-card, .footer").forEach(el => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(24px)";
+      el.style.transition = "opacity .7s ease, transform .7s ease";
+      obs.observe(el);
+    });
+  }
+
+  /* ─── INIT ───────────────────────────────────────── */
+  initLinks();
+  renderFeatured();
+  renderCatalog();
+  renderCombos();
+  renderCart();
+  hydrateForm();
+</script>
+</body>
+</html>
+
+
+
